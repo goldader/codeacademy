@@ -10,7 +10,7 @@ shape_list = ("C", "T")
 
 # startup the calculator
 print("The calculator is starting up!")
-print("\nThe current date and time is %s/%s/%s %s:%s") % (now.month, now.day, now.year, now.hour, now.minute)
+print("\nThe current date and time is %s/%s/%s %s:%s" % (now.month, now.day, now.year, now.hour, now.minute))
 
 option = input("Enter C for Circle or T for Triangle: ")
 
