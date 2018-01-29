@@ -1,0 +1,41 @@
+def hotel_cost(nights):
+    cost = 140
+    # print("\nThe hotel costs " + str(cost * nights))
+    return (cost * nights)
+
+
+def plane_ride_cost(city):
+    cities = ("charlotte", "tampa", "pittsburgh", "los angeles")
+    prices = (183, 220, 222, 475)
+    if city.lower() in (cities):
+        index = cities.index(city.lower())
+        # print("\nAirfare costs " + str(prices[index]))
+        return (prices[index])
+    else:
+        print("\nWe don't have a price for that city")
+
+
+def rental_car_cost(days):
+    cost = 40
+    if days >= 3 and days < 7:
+        cost = (days * cost) - 20
+        # print("\nRental Car cost is " + str(cost))
+        return (cost)
+    elif days >= 7:
+        cost = (days * cost) - 50
+        # print("\nRental Car cost is " + str(cost))
+        return (cost)
+    else:
+        cost = (days * cost)
+        # print("\nRental Car cost is " + str(cost))
+        return (cost)
+
+
+def trip_cost(city, days, spending_money):
+    total = spending_money + hotel_cost(days) + plane_ride_cost(city) + rental_car_cost(days)
+    # print("\nThe total trip cost is " + str(total))
+    return total
+
+
+print("The cost of a trip to %s for %s days with an extra %s of spending money is " % ("Los Angeles", 5, 600))
+print(trip_cost("los angeles", 5, 600))
