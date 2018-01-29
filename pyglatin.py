@@ -2,7 +2,7 @@
 
 pyg = 'ay'  # suffix variable
 
-original = input('Enter a sinle word - no spaces or special characters:')
+original = input('Enter a single word - no spaces or special characters:')
 
 if len(original) > 0 and original.isalpha():
     word = original.lower()
