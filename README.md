@@ -1,4 +1,4 @@
 # codeacademy
 Files saved from code academy for potential future reference
 
-This is an update made from PyCharm. I want to see if it updates in GitHub
+Each file in this repository is a specific exercise from CodeAcademy.  None of them are the actual CodeAcademy code but rather my submitted work.
