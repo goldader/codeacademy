@@ -1,0 +1,44 @@
+"""CodeAcademy bank account project."""
+
+class BankAccount(object):
+  balance=0.0
+  
+  def __init__(self,name,acct_type):
+    #initialises the class
+    self.name=name
+    self.acct_type=acct_type
+  
+  def __repr__(self):
+    #gives a clean print message about the account
+    return ("%s account of %s. Balance = %s" % (self.acct_type.title(), self.name.title(), round(self.balance,2)))
+  
+  def show_balance(self):
+    #provides a simple balance print method
+    return ("The up to date balance is: %s" % round(self.balance,2))
+  
+  def deposit(self,amount):
+    #allows for deposits to be made to the account
+    if amount>0:
+       self.balance+=amount
+       print("\nYou have deposited %s." % (round(amount,2)))
+       print self.show_balance()
+    else:
+      print("\nThere appears to be an error. You can only deposit a positive amount. You've attempted to deposit %s." % amount)
+      
+  def withdraw(self,amount):
+    #allows for withdrawals from the account as bounded by balance
+    if self.balance>=amount:
+      self.balance-=amount
+      print("\nYou have withdrawn %s." % (round(amount,2)))
+      print self.show_balance()
+    else:
+      overage=self.balance-amount
+      print("\nYour balance is %s. This withdrawl cannot be processed and would result in an overdraft of %s." % (round(self.balance,2), round(overage,2)))
+  
+my_account=BankAccount("john goldader","checking")
+#my_account.balance=100
+print my_account
+#print my_account.show_balance()
+my_account.deposit(2000)
+my_account.withdraw(1000)
+print my_account
