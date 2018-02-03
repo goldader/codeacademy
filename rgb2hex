@@ -1,0 +1,50 @@
+"""CodeAcademy project for converting RGB to HEX and vice versa"""
+
+def rgb_hex():
+  invalid_msg="\nYou've entered an invalid value. Try again."
+  rgb_list=['red','green','blue']
+  rgb_values={}
+  hex_output=""
+  print"Remember. RGB values are 0-255."
+  
+  for colour in rgb_list:
+    v=raw_input("\nPlease give the value for %s: " % colour.upper())
+    while int(v) not in range(0,256):
+      print invalid_msg
+      v=raw_input("\nPlease give the value for %s: " % colour)
+    rgb_values[colour]=v
+  val=(int(rgb_values["red"]) << 16) + (int(rgb_values["blue"])) + (int(rgb_values["green"]) << 8)
+  #print val
+  print("The hex value is: %s" % (hex(val)[2:len(hex(val))].upper()))
+
+def hex_rgb():
+  invalid_msg="\nYou've entered an invalid value. Try again."
+  v=raw_input("\nPlease give hex value to convert: ")
+  rgb_list=['blue','green','red']
+  rgb_values={}
+  while len(v)!=6:
+    print invalid_msg
+    v=raw_input("\nPlease give the hex value to convert: ")
+  v=int(v,16)
+  two_hex_digits=2**8
+  for colour in rgb_list:
+    rgb_values[colour]=v % two_hex_digits
+    v = v >> 8
+  print("The RGB values are %s" % rgb_values)
+  
+def convert():
+  while True:
+    option=raw_input("Enter 1 to convert RGB -> Hex. Enter 2 to convert Hex -> RGB. Enter X to Exit: ")
+    if option=='1':
+      print("RGB to Hex ...")
+      rgb_hex()
+    elif option=='2':
+      print("Hex to RGB ...")
+      hex_rgb()
+    elif option.lower()=="x":
+      print("Goodbye")
+      break
+    else:
+      print("Error. Give it another go.")
+
+convert()
